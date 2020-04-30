@@ -39,6 +39,19 @@ class IdenaDevProvider {
         console.log(balance)
         return [nonce, balance]
     }
+
+    async getCurrentEpoch() {
+        const epoch = await this.request("dna_epoch", []);
+        console.log(epoch)
+        return epoch
+    }
+
+    async sendTransaction(rawData) {
+        const result = await this.request("bcn_sendRawTx", [rawData]);
+        console.log(result)
+        return result
+    }
+
 }
 
 

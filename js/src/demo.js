@@ -15,6 +15,12 @@ async function get_nonce() {
     document.querySelector("#nonce").value = values[0] + 1
 }
 
+async function get_epoch() {
+    value = await getCurrentEpoch(provider)
+    document.querySelector("#epoch").value = value["epoch"]
+}
+
+
 function get_transaction() {
     // test vector tx
     var transaction = {
@@ -39,6 +45,21 @@ function get_transaction() {
     document.querySelector("#rawdnaurl").value = dnaUrl
 }
 
+function sign_transaction() {
+    // This can be done offline. Take RawDnaUrl, sign with private key (hex format)
+    sigdnaurl = signTransaction(document.querySelector("#rawdnaurl").value, document.querySelector("#privkey").value)
+    document.querySelector("#sigdnaurl").value = sigdnaurl
+}
+
+function send_transaction() {
+    res = sendTransaction(document.querySelector("#rawdnaurl").value, document.querySelector("#sigdnaurl").value, provider)
+    console.log(res)
+    document.querySelector("#send_result").value = res
+}
+
 const provider = getProvider()
 document.querySelector("#get_nonce").addEventListener("click", get_nonce)
+document.querySelector("#get_epoch").addEventListener("click", get_epoch)
 document.querySelector("#get_transaction").addEventListener("click", get_transaction)
+document.querySelector("#sign_transaction").addEventListener("click", sign_transaction)
+document.querySelector("#send_transaction").addEventListener("click", send_transaction)

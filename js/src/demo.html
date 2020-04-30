@@ -29,27 +29,23 @@
                 <label for="address">Sender address</label>
                 <input type="TEXT" class="form-control" id="address" placeholder="" aria-label="address"
                        autocomplete="off" data-docs-version="4.3" value="0x9858EfFD232B4033E47d90003D41EC34EcaEda94">
-                <label for="privkey">Sender privkey</label>
-                <input type="TEXT" class="form-control" id="privkey" placeholder="" aria-label="privkey"
-                       autocomplete="off" data-docs-version="4.3"
-                       value="1ab42cc412b618bdea3a599e3c9bae199ebf030895b039e9db1e30dafb12b727">
                 <br/>
-                <button class="btn btn-primary" type="button" id="get_nonce">Get nonce</button>
+                <button class="btn btn-primary" type="button" id="get_nonce">Get nonce</button> <small>You have to use this to get your own - up to date - nonce</small>
                 <br/>
                 <label for="nonce">Nonce</label>
                 <input type="number" class="form-control" id="nonce" placeholder="" aria-label="nonce"
                        autocomplete="off" data-docs-version="4.3" value="1">
                 <br/>
-                <label for="epoch">Epoch</label>
+                <label for="epoch">Epoch</label> <button class="btn btn-info btn-small" type="button" id="get_epoch">Get Epoch</button> <small>This has to be current epoch</small>
                 <input type="number" class="form-control" id="epoch" placeholder="" aria-label="epoch"
                        autocomplete="off" data-docs-version="4.3" value="43">
                 <br/>
 
-                <label for="amount">Amount</label>
+                <label for="amount">Amount (DNA)</label>
                 <input type="number" class="form-control" id="amount" placeholder="" aria-label="amount"
                        autocomplete="off" data-docs-version="4.3" value="0.000000000000000001">
                 <br/>
-                <label for="maxfee">Maxfee</label>
+                <label for="maxfee">Maxfee (DNA)</label>
                 <input type="number" class="form-control" id="maxfee" placeholder="" aria-label="maxfee"
                        autocomplete="off" data-docs-version="4.3" value="0.00000000000001">
                 <br/>
@@ -58,27 +54,47 @@
                        autocomplete="off" data-docs-version="4.3"
                        value="0x9858EfFD232B4033E47d90003D41EC34EcaEda94">
                 <br/>
-                <label for="data">Data</label>
+                <label for="data">Data (Can be empty or 0x, means the same)</label>
                 <input type="TEXT" class="form-control" id="data" placeholder="" aria-label="data"
                        autocomplete="off" data-docs-version="4.3"
                        value="0x">
                 <br/>
                 <button class="btn btn-primary" type="button" id="get_transaction">Get transaction</button>
-                <br/>
-                <label for="rawdnaurl">RawDnaUrl</label>
-                <input type="TEXT" class="form-control" id="rawdnaurl" placeholder="" aria-label="rawdnaurl"
-                       autocomplete="off" data-docs-version="4.3"
-                       value="">
-                <br/>
-                <button class="btn btn-primary" type="button" id="sign_transaction">Sign transaction</button>
+                <br/> &nbsp; <br/>
+
+                <div class="row" style="border:1px solid gray;">
+                    <div class="col-12">
+                        This step can be fully offline. <br/>RawDnaUrl from an online source plus sender prikvey
+                        (offline) are then signed offline, and produce the SigDnaUrl for the next step.
+                        <br/> &nbsp; <br/>
+                        <label for="rawdnaurl">RawDnaUrl</label>
+                        <input type="TEXT" class="form-control" id="rawdnaurl" placeholder="" aria-label="rawdnaurl"
+                               autocomplete="off" data-docs-version="4.3"
+                               value="">
+                        <br/>
+                        <label for="privkey">Sender privkey</label>
+                        <input type="TEXT" class="form-control" id="privkey" placeholder="" aria-label="privkey"
+                               autocomplete="off" data-docs-version="4.3"
+                               value="1ab42cc412b618bdea3a599e3c9bae199ebf030895b039e9db1e30dafb12b727">
+                        <br/>
+                        <button class="btn btn-primary" type="button" id="sign_transaction">Sign transaction</button>
+                        <br/>&nbsp;<br/>
+                    </div>
+                </div>
                 <br/>
                 <label for="sigdnaurl">SigDnaUrl</label>
                 <input type="TEXT" class="form-control" id="sigdnaurl" placeholder="" aria-label="sigdnaurl"
                        autocomplete="off" data-docs-version="4.3"
                        value="">
+                <br/>
+                <button class="btn btn-primary" type="button" id="send_transaction">Send transaction</button>
+                <br/>&nbsp;<br/>
+                <input type="TEXT" class="form-control" id="send_result" placeholder="" aria-label="send_result"
+                       autocomplete="off" data-docs-version="4.3"
+                       value="">
 
             </form>
-
+            <br/>&nbsp;<br/>
 
         </div>
     </div>
