@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>DNA Send Demo</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+
+<body>
+<div class="container">
+
+
+    <div class="row" style="margin-bottom:10px;margin-top:10px;">
+        <div class="col-6">
+            <a href="demo.html" class="btn btn-success">Demo</a>
+        </div>
+    </div>
+
+
+    <h1>Dna Send Demo</h1>
+    <div class="row">
+        <div class="col-6 col-md-6 col-xl-6">
+
+            <form>
+                <label for="address">Sender address</label>
+                <input type="TEXT" class="form-control" id="address" placeholder="" aria-label="address"
+                       autocomplete="off" data-docs-version="4.3" value="0x9858EfFD232B4033E47d90003D41EC34EcaEda94">
+                <label for="privkey">Sender privkey</label>
+                <input type="TEXT" class="form-control" id="privkey" placeholder="" aria-label="privkey"
+                       autocomplete="off" data-docs-version="4.3"
+                       value="1ab42cc412b618bdea3a599e3c9bae199ebf030895b039e9db1e30dafb12b727">
+                <br/>
+                <button class="btn btn-primary" type="button" id="get_nonce">Get nonce</button>
+                <br/>
+                <label for="nonce">Nonce</label>
+                <input type="number" class="form-control" id="nonce" placeholder="" aria-label="nonce"
+                       autocomplete="off" data-docs-version="4.3" value="1">
+                <br/>
+                <label for="epoch">Epoch</label>
+                <input type="number" class="form-control" id="epoch" placeholder="" aria-label="epoch"
+                       autocomplete="off" data-docs-version="4.3" value="43">
+                <br/>
+
+                <label for="amount">Amount</label>
+                <input type="number" class="form-control" id="amount" placeholder="" aria-label="amount"
+                       autocomplete="off" data-docs-version="4.3" value="0.000000000000000001">
+                <br/>
+                <label for="maxfee">Maxfee</label>
+                <input type="number" class="form-control" id="maxfee" placeholder="" aria-label="maxfee"
+                       autocomplete="off" data-docs-version="4.3" value="0.00000000000001">
+                <br/>
+                <label for="recipient">Recipient</label>
+                <input type="TEXT" class="form-control" id="recipient" placeholder="" aria-label="recipient"
+                       autocomplete="off" data-docs-version="4.3"
+                       value="0x9858EfFD232B4033E47d90003D41EC34EcaEda94">
+                <br/>
+                <label for="data">Data</label>
+                <input type="TEXT" class="form-control" id="data" placeholder="" aria-label="data"
+                       autocomplete="off" data-docs-version="4.3"
+                       value="0x">
+                <br/>
+                <button class="btn btn-primary" type="button" id="get_transaction">Get transaction</button>
+                <br/>
+                <label for="rawdnaurl">RawDnaUrl</label>
+                <input type="TEXT" class="form-control" id="rawdnaurl" placeholder="" aria-label="rawdnaurl"
+                       autocomplete="off" data-docs-version="4.3"
+                       value="">
+                <br/>
+                <button class="btn btn-primary" type="button" id="sign_transaction">Sign transaction</button>
+                <br/>
+                <label for="sigdnaurl">SigDnaUrl</label>
+                <input type="TEXT" class="form-control" id="sigdnaurl" placeholder="" aria-label="sigdnaurl"
+                       autocomplete="off" data-docs-version="4.3"
+                       value="">
+
+            </form>
+
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
