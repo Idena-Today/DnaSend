@@ -5,7 +5,7 @@ import struct
 
 sys.path.append('../')
 from dnasend import DnaSend
-from dnasend.dnaprovider import IdenaDevDnaProvider
+from dnasend.idenadevdnaprovider import IdenaDevDnaProvider
 
 
 def int_to_bytes(x: int) -> bytes:

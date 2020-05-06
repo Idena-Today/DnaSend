@@ -2,41 +2,46 @@
 
 """Top-level package for DnaSend."""
 
-from dnasend.dnaprovider import DnaProvider, IdenaDevDnaProvider
+import logging
+
+from .dnaprovider import DnaProvider
+from .idenadevdnaprovider import IdenaDevDnaProvider
 
 
 __author__ = """Idena.Today"""
 __email__ = 'dev@idena.today'
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 
 class DnaSend:
 
-    def __init__(self, provider: DnaProvider=None):
-        if provider is None:
-            provider = self.getProvider()
-        self.provider = DnaProvider
+    def __init__(self, provider: DnaProvider = None):
+        self.provider = provider if provider else self.provider()
 
     @classmethod
-    def getProvider(cls, type: str='', url: str='') -> DnaProvider:
-        # Only this test provider atm
-        idenaDev = IdenaDevDnaProvider()
-        return idenaDev
+    def provider(cls, type: str = "", url: str = "") -> DnaProvider:
+        type = type.lower()
 
-    def transactionToRawDnaUrl(self, transaction):
-        pass
+        if type == "default":
+            return IdenaDevDnaProvider(url=url)  # TODO: Remove example
+        else:
+            return IdenaDevDnaProvider(url=url)
+
+    def tx_to_raw_dnaurl(self, transaction):
         # return dnaUrlEncode(transaction, "raw")
+        pass
 
-    def getNonceForAddress(self, address: str):
-        nonce = self.provider.getNonceForAddress(address)
-        print ("getNonceForAddress ", nonce)
+    def nonce_for_address(self, address: str):
+        nonce = self.provider.nonce_for_address(address)
+        logging.info(f"{self.provider()} Address: {address} Nonce: {nonce}")
         return nonce
 
-    def getCurrentEpoch(self):
-        epoch = self.provider.getCurrentEpoch()
+    def current_epoch(self):
+        epoch = self.provider.current_epoch()
+        logging.info(f"{self.provider()} Epoch: {epoch}")
         return epoch
 
-    def signTransaction(self, dnaUrl: str, privateKey: str):
+    def sign_tx(self, dnaUrl: str, privateKey: str):
         # privateKey as hex
         pass
         """
@@ -63,7 +68,7 @@ class DnaSend:
             return transaction["message"]
         """
 
-    def sendTransaction(self, rawDnaUrl: str, sigDnaUrl: str):
+    def send_tx(self, rawDnaUrl: str, sigDnaUrl: str):
         """
         const transaction = dnaUrlDecode(rawDnaUrl)
         const sig = dnaUrlDecode(sigDnaUrl)
